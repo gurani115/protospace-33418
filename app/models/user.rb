@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :comment
   validates :name, presence: true
   validates :profile, presence: true
-  validates :profile, presence: true
-  validates :profile, presence: true
+  validates :occupation, presence: true
+  validates :position, presence: true
 end

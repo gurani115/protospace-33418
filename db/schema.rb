@@ -47,11 +47,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_111308) do
     t.string "title", default: "", null: false
     t.text "catch_copy", null: false
     t.text "concept", null: false
-    t.bigint "user"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.index ["user"], name: "index_prototypes_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,7 +63,6 @@ ActiveRecord::Schema.define(version: 2021_03_02_111308) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -74,5 +70,4 @@ ActiveRecord::Schema.define(version: 2021_03_02_111308) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
-  add_foreign_key "prototypes", "users", column: "user"
 end
